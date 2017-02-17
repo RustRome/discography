@@ -1,13 +1,13 @@
 extern crate discography;
 
 
-use discography::{Discography, EndPoint};
+use discography::{Discography, Endpoint};
 
 fn main() {
     let discogs = Discography::new();
 
-    let label = discogs.database()
-        .labels().id(1).get().expect("Label not found");
+    let label_releases = discogs.database()
+        .labels().id(1).releases().get();
 
-    println!("{:?}", label);
+    println!("{:?}", label_releases);
 }

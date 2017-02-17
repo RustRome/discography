@@ -7,7 +7,11 @@ fn main() {
     let discogs = Discography::new();
 
     let label = discogs.database()
-        .labels().id(1).get().expect("Label not found");
+        .search()
+        .label("abbey")
+        .get()
+        .expect("Failed to search label");
+
 
     println!("{:?}", label);
 }

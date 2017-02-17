@@ -1,10 +1,16 @@
+//! Labels API
+//!
+//! https://www.discogs.com/developers/#page:database,header:database-label
+//!
+
+mod label;
+mod releases;
+
 use ::discography::Discography;
-
-
-pub struct Label {}
+use self::label::LabelEndpoint;
 
 pub struct LabelsEndpoint<'a> {
-    client: &'a Discography
+    client: &'a Discography,
 }
 
 
@@ -13,26 +19,7 @@ impl<'a> LabelsEndpoint<'a> {
         LabelsEndpoint { client: client }
     }
 
-
-    pub fn one(&self, id: i64) -> LabelEndpoint {
+    pub fn id(&self, id: i64) -> LabelEndpoint {
         LabelEndpoint::new(self.client, id)
     }
 }
-
-
-pub struct LabelEndpoint<'a> {
-    id: i64,
-    client: &'a Discography
-}
-
-impl<'a> LabelEndpoint<'a> {
-    fn new(client: &Discography, id: i64) -> LabelEndpoint {
-        LabelEndpoint {
-            id: id,
-            client: client
-        }
-    }
-
-}
-
-

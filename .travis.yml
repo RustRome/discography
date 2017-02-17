@@ -8,13 +8,6 @@ rust:
 
 jdk:
   - oraclejdk8
-before_script:
-  - ./ci/initialize-ci.sh $ORIENTDB_VERSION
-env:
-
-  - ORIENTDB_VERSION=2.2.15-SNAPSHOT CXX=g++-4.8
-  - ORIENTDB_VERSION=3.0.0-SNAPSHOT CXX=g++-4.8
-
 
 addons:
   apt:
@@ -37,6 +30,6 @@ after_success: |
   sudo make install &&
   cd ../.. &&
   rm -rf kcov-master &&
-  for file in target/debug/songkick-*; do mkdir -p "target/cov/$(basename $file)"; kcov --exclude-pattern=/.cargo,/usr/lib --verify "target/cov/$(basename $file)" "$file"; done &&
+  for file in target/debug/discography-*; do mkdir -p "target/cov/$(basename $file)"; kcov --exclude-pattern=/.cargo,/usr/lib --verify "target/cov/$(basename $file)" "$file"; done &&
   bash <(curl -s https://codecov.io/bash) &&
   echo "Uploaded code coverage"

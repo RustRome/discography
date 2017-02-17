@@ -1,0 +1,15 @@
+[package]
+name = "discography"
+version = "0.1.0"
+authors = ["maggiolo00 <maggiolo00@gmail.com>"]
+description = "Rust library for Discogs API"
+keywords = ["Discogs", "Music"]
+license = "MIT"
+
+[dependencies]
+hyper = "0.10"
+hyper-native-tls = "0.2.1"
+serde = "0.9"
+serde_json = "0.9"
+serde_derive = "0.9"
+log = "0.3"
