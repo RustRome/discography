@@ -35,39 +35,55 @@ impl<'a> SearchEndpoint<'a> {
             country: None,
             year: None,
             client: client,
-            query: None
+            query: None,
         }
     }
 
-    pub fn q<T>(&'a mut self, query: T) -> &'a mut SearchEndpoint where T: Into<String> {
+    pub fn q<T>(&'a mut self, query: T) -> &'a mut SearchEndpoint
+        where T: Into<String>
+    {
         self.query = Some(query.into());
         self
     }
-    pub fn title<T>(&'a mut self, title: T) -> &'a mut SearchEndpoint where T: Into<String> {
+    pub fn title<T>(&'a mut self, title: T) -> &'a mut SearchEndpoint
+        where T: Into<String>
+    {
         self.title = Some(title.into());
         self
     }
-    pub fn release_title<T>(&'a mut self, release_title: T) -> &'a mut SearchEndpoint where T: Into<String> {
+    pub fn release_title<T>(&'a mut self, release_title: T) -> &'a mut SearchEndpoint
+        where T: Into<String>
+    {
         self.release_title = Some(release_title.into());
         self
     }
-    pub fn artist<T>(&'a mut self, artist: T) -> &'a mut SearchEndpoint where T: Into<String> {
+    pub fn artist<T>(&'a mut self, artist: T) -> &'a mut SearchEndpoint
+        where T: Into<String>
+    {
         self.artist = Some(artist.into());
         self
     }
-    pub fn label<T>(&'a mut self, label: T) -> &'a mut SearchEndpoint where T: Into<String> {
+    pub fn label<T>(&'a mut self, label: T) -> &'a mut SearchEndpoint
+        where T: Into<String>
+    {
         self.label = Some(label.into());
         self
     }
-    pub fn genre<T>(&'a mut self, genre: T) -> &'a mut SearchEndpoint where T: Into<String> {
+    pub fn genre<T>(&'a mut self, genre: T) -> &'a mut SearchEndpoint
+        where T: Into<String>
+    {
         self.genre = Some(genre.into());
         self
     }
-    pub fn style<T>(&'a mut self, style: T) -> &'a mut SearchEndpoint where T: Into<String> {
+    pub fn style<T>(&'a mut self, style: T) -> &'a mut SearchEndpoint
+        where T: Into<String>
+    {
         self.style = Some(style.into());
         self
     }
-    pub fn country<T>(&'a mut self, country: T) -> &'a mut SearchEndpoint where T: Into<String> {
+    pub fn country<T>(&'a mut self, country: T) -> &'a mut SearchEndpoint
+        where T: Into<String>
+    {
         self.country = Some(country.into());
         self
     }
@@ -107,16 +123,12 @@ impl<'a> Query for SearchEndpoint<'a> {
         self.add_param(&mut base, "country", &self.country);
 
         // year
-        self.add_param(&mut base, "year", &self.year.map(|y| {
-            y.to_string()
-        }));
+        self.add_param(&mut base, "year", &self.year.map(|y| y.to_string()));
 
         // type
-        self.add_param(&mut base, "type", &self.q_type.as_ref().and_then(|v| {
-
-            Some(v.to_param())
-
-        }));
+        self.add_param(&mut base,
+                       "type",
+                       &self.q_type.as_ref().and_then(|v| Some(v.to_param())));
 
 
         let len = base.len() - 1;

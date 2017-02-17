@@ -5,7 +5,7 @@ use std::collections::HashMap;
 #[derive(Deserialize, Debug)]
 pub struct SearchResult {
     pagination: Pagination,
-    results: Vec<SearchResultItem>
+    results: Vec<SearchResultItem>,
 }
 
 
@@ -27,5 +27,3 @@ pub struct SearchResultItem {
     genre: Vec<String>,
     resource_url: String,
 }
-
-

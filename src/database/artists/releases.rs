@@ -1,6 +1,6 @@
 use ::discography::Discography;
 use {Query, InternalEndpoint, Endpoint, DiscographyResult};
-use models::artist::{ArtistReleases};
+use models::artist::ArtistReleases;
 
 
 pub struct ArtistReleasesEndpoint<'a> {

@@ -29,7 +29,7 @@ pub enum Type {
     #[serde(rename="artist")]
     Artist,
     #[serde(rename="label")]
-    Label
+    Label,
 }
 
 
@@ -45,4 +45,3 @@ impl IntoParam for Type {
         String::from(matched)
     }
 }
-

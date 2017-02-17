@@ -1,4 +1,4 @@
-use models::misc::{Pagination,Image};
+use models::misc::{Pagination, Image};
 
 #[derive(Deserialize, Debug)]
 pub struct Label {

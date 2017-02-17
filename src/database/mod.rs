@@ -30,7 +30,7 @@ impl<'a> Database<'a> {
         ArtistsEndpoint::new(self.client)
     }
 
-    pub fn search(&self) -> SearchEndpoint{
+    pub fn search(&self) -> SearchEndpoint {
         SearchEndpoint::new(self.client)
     }
 }

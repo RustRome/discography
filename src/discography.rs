@@ -15,7 +15,7 @@ pub struct Discography {
     url: String,
     user_agent: String,
     client: Client,
-    token: Option<String>
+    token: Option<String>,
 }
 
 impl Discography {
@@ -32,11 +32,13 @@ impl Discography {
             url: String::from("https://api.discogs.com"),
             user_agent: String::from("Discography/1.0"),
             client: client,
-            token: token
+            token: token,
         }
     }
 
-    pub fn with_token<S>(token: S) -> Discography where S: Into<String> {
+    pub fn with_token<S>(token: S) -> Discography
+        where S: Into<String>
+    {
         Discography::d_with_token(Some(token.into()))
     }
 

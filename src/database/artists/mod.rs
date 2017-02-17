@@ -18,6 +18,4 @@ impl<'a> ArtistsEndpoint<'a> {
     pub fn id(&self, id: i64) -> ArtistEndpoint {
         ArtistEndpoint::new(self.client, id)
     }
-
-
 }
